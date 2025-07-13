@@ -94,11 +94,68 @@ FROM employees;
 
 
 
+Example 1: Mahine ka Pehla Din
+sql
+Copy
+Edit
+SELECT DATE_TRUNC('month', CURRENT_DATE) AS start_of_month;
+
+
+
+
+📌 Example 2: Saal ka Pehla Din
+sql
+Copy
+Edit
+SELECT DATE_TRUNC('year', CURRENT_DATE) AS start_of_year;
+📤 Output: 2025-01-01 00:00:00
+
+
+📌 Example 3: Hafte ka Start (Sunday ya Monday based on config)
+sql
+Copy
+Edit
+SELECT DATE_TRUNC('week', CURRENT_DATE) AS start_of_week;
+
+
+
+
+SELECT DATE_TRUNC('day', NOW()) AS start_of_day;
+
+
+💡 Real-Life Use Case:
+🧮 Count of employees joined this month:
+
+select count(*)
+from employees
+where date_trunc('month',joindate)=date_trunc('month',current_date)
+
+
+--  Group by Month (Year + Month combo):
+-- sql
+-- Copy
+-- Edit
+
+
+SELECT DATE_TRUNC('month', joindate) AS join_month,
+       COUNT(*) AS total_joins
+FROM employees
+GROUP BY join_month
+ORDER BY join_month;
 
 
 
 
 
+
+
+
+
+
+
+
+
+SELECT DATE_TRUNC('year', CURRENT_DATE) AS start_of_year;
 
 
 
